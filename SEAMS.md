@@ -1,6 +1,8 @@
 # The Four Seams
 
-A composite only exists where the parts can talk. This file tracks what each seam needs, what it has today, and what blocks it.
+A merged runtime only exists where the planes can share state. These are the four joins between what are currently four separate products — what each needs, what exists today, and what blocks it.
+
+The target is one runtime (see README), so treat every seam below as an **internal boundary**, not a network hop: same process, typed calls, one scheduler.
 
 Status values: **open** (nothing exists) · **partial** (one direction works) · **solved** (works today, should be reused, not rebuilt).
 
@@ -95,4 +97,4 @@ That last one is the interesting requirement, and none of the four currently sup
 3. **Permissions.** The keyboard needs input access; the agent needs accessibility and shell; the vault needs file access. No shared threat model.
 4. **Release cadence.** Four upstreams moving independently. Any contract defined here has to survive being broken by someone else's minor version.
 
-These are the reasons this repository is a written proposal and not a build.
+These are the reasons the current four cannot simply be wired together — and, conversely, the reasons the merged version has to own the substrate rather than sit on top of four substrates.
